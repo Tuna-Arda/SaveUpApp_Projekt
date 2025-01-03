@@ -1,0 +1,33 @@
+﻿<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:SaveUpApp.ViewModels"
+    x:Class="SaveUpApp.Views.AddProductPage"
+    x:DataType="viewModels:AddProductViewModel"
+    Title="Neues Produkt">
+
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="Neues Produkt erfassen"
+            FontSize="24"
+            HorizontalOptions="Center" />
+
+        <Entry
+            Placeholder="Kurzbeschreibung"
+            Text="{Binding Description, Mode=TwoWay}" />
+
+        <Entry
+            Placeholder="Preis"
+            Keyboard="Numeric"
+            Text="{Binding Price, Mode=TwoWay}" />
+
+        <DatePicker
+            Date="{Binding SavedDate, Mode=TwoWay}" 
+            Margin="0,10,0,10" />
+
+        <Button
+            Text="Speichern"
+            Clicked="OnSaveClicked"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

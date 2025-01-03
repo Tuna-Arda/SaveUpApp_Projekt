@@ -1,0 +1,31 @@
+﻿<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:SaveUpApp.ViewModels"
+    x:Class="SaveUpApp.Views.HomePage"
+    x:DataType="viewModels:HomeViewModel"
+    Title="Home">
+
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="Willkommen bei SaveUp"
+            FontSize="24"
+            HorizontalOptions="Center" />
+
+        <Label 
+            Text="Erfassen Sie Ihre gesparten Ausgaben, um den Fortschritt zu sehen!"
+            HorizontalOptions="Center"
+            Margin="0,10,0,10" />
+
+        <Button
+            Text="Neues Produkt erfassen"
+            Clicked="OnAddProductClicked"
+            HorizontalOptions="Center"
+            Margin="0,10,0,10" />
+
+        <Button
+            Text="Liste anzeigen"
+            Clicked="OnShowListClicked"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
