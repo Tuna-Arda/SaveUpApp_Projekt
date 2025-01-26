@@ -9,7 +9,7 @@ public partial class AddProductPage : ContentPage
     public AddProductPage()
     {
         InitializeComponent();
-
+        // Gemeinsame Liste aus AppShell
         var list = AppShell.SharedProducts;
         _viewModel = new AddProductViewModel(list);
         BindingContext = _viewModel;
@@ -23,6 +23,7 @@ public partial class AddProductPage : ContentPage
             await DisplayAlert("Fehler", "Bitte gültige Daten eingeben!", "OK");
             return;
         }
+
         await DisplayAlert("Gespeichert", "Produkt hinzugefügt!", "OK");
         await Shell.Current.GoToAsync(".."); // Zurück
     }

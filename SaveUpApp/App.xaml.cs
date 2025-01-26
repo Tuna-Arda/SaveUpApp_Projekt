@@ -1,18 +1,21 @@
-﻿using Microsoft.Maui.Controls;
-
-namespace SaveUpApp;
+﻿namespace SaveUpApp;
 
 public partial class App : Application
 {
     public App()
     {
         InitializeComponent();
-        // MainPage = new AppShell(); // nicht mehr nötig, wir überschreiben CreateWindow()
+
+        // Route-Registrierungen: 
+        Routing.RegisterRoute(nameof(Views.HomePage), typeof(Views.HomePage));
+        Routing.RegisterRoute(nameof(Views.AddProductPage), typeof(Views.AddProductPage));
+        Routing.RegisterRoute(nameof(Views.ListPage), typeof(Views.ListPage));
+        
     }
 
     protected override Window CreateWindow(IActivationState activationState)
     {
-        // NICHT base.CreateWindow(...) aufrufen, um NotImplementedExceptions zu vermeiden
+        // Muss zur Basismethode passen
         return new Window(new AppShell());
     }
 }

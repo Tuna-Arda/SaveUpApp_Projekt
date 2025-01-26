@@ -23,9 +23,9 @@ namespace SaveUpApp.ViewModels
             {
                 var newProduct = new Product
                 {
-                    Description = this.Description,
-                    Price = this.Price,
-                    SavedDate = this.SavedDate
+                    Description = Description,
+                    Price = Price,
+                    SavedDate = SavedDate
                 };
 
                 _products.Add(newProduct);

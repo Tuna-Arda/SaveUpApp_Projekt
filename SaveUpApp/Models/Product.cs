@@ -6,8 +6,6 @@
         public decimal Price { get; set; }
         public DateTime SavedDate { get; set; } = DateTime.Now;
 
-        public Product()
-        {
-        }
+        public Product() { }
     }
 }
