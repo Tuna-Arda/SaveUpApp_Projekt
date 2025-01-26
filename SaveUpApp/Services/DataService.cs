@@ -6,7 +6,7 @@ namespace SaveUpApp.Services
 {
     public static class DataService
     {
-        // Wähle deinen Pfad:
+        //Pfad
         private static readonly string customDirectory = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
             "SaveUpAppData");
