@@ -6,51 +6,60 @@
     xmlns:viewModels="clr-namespace:SaveUpApp.ViewModels"
     xmlns:models="clr-namespace:SaveUpApp.Models"
     x:DataType="viewModels:ListViewModel"
-    Title="Gespeicherte Produkte">
+    Title="Gespeicherte Produkte"
+    BackgroundColor="{StaticResource BackgroundColorLight}">
 
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout Padding="20" Spacing="15">
         <Label
             Text="Gespeicherte Verzichtsprodukte"
-            FontSize="24"
-            HorizontalOptions="Center"
-            Margin="0,0,0,10" />
+            Style="{StaticResource TitleLabelStyle}" />
 
+        <!-- CollectionView mit Card-Design: Jedes Item in einem Frame -->
         <CollectionView ItemsSource="{Binding Products}" SelectionMode="None">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
-                    <HorizontalStackLayout Spacing="10"
-                                   HorizontalOptions="Center">
-                        <Label Text="{Binding Description}" />
-                        <Label Text="{Binding Price, StringFormat='CHF {0:F2}'}" />
-                        <Label Text="{Binding SavedDate, StringFormat='{0:dd.MM.yyyy HH:mm}'}" />
-                        <Button Text="X"
-                        BackgroundColor="Red"
-                        TextColor="White"
-                        Clicked="OnRemoveSingleClicked"
-                        CommandParameter="{Binding .}" />
+                    <Frame Style="{StaticResource CardStyle}" Padding="10">
+                        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                            <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                                <Label
+                                    Text="{Binding Description}"
+                                    FontAttributes="Bold"
+                                    HorizontalOptions="Center" />
+                                <Label
+                                    Text="{Binding Price, StringFormat='CHF {0:F2}'}"
+                                    TextColor="{StaticResource SecondaryColor}"
+                                    HorizontalOptions="Center" />
+                                <Label
+                                    Text="{Binding SavedDate, StringFormat='{0:dd.MM.yyyy HH:mm}'}"
+                                    FontSize="12"
+                                    HorizontalOptions="Center" />
+                            </VerticalStackLayout>
 
-                        <Label
-                            x:Name="SumLabel"
-                            FontAttributes="Bold"
-                            FontSize="18"
-                            Margin="0,10,0,10" />       
-                    </HorizontalStackLayout>
+                            <Button
+                                Text="X"
+                                BackgroundColor="Red"
+                                TextColor="White"
+                                CornerRadius="15"
+                                Clicked="OnRemoveSingleClicked"
+                                CommandParameter="{Binding .}" />
+                        </HorizontalStackLayout>
+                    </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-
+        <!-- Summenanzeige -->
         <Label
             x:Name="SumLabel"
             FontAttributes="Bold"
             FontSize="18"
-            Margin="0,10,0,10" />
+            Margin="0,0,0,10"
+            HorizontalOptions="Center"/>
 
         <Button
             Text="Alle löschen"
-            Clicked="OnClearAllClicked"
-            BackgroundColor="Orange"
-            TextColor="White"
-            HorizontalOptions="Center" />
+            BackgroundColor="{StaticResource AccentColor}"
+            HorizontalOptions="Center"
+            Clicked="OnClearAllClicked" />
     </VerticalStackLayout>
 </ContentPage>

@@ -5,34 +5,35 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModels="clr-namespace:SaveUpApp.ViewModels"
     x:DataType="viewModels:HomeViewModel"
-    Title="Home">
+    Title="Home"
+    BackgroundColor="{StaticResource BackgroundColorLight}">
 
-    <VerticalStackLayout Padding="20" Spacing="10">
+    <!-- Hauptlayout mit etwas großzügigerem Padding -->
+    <VerticalStackLayout Padding="30" Spacing="20">
         <Label
             Text="{Binding WelcomeText}"
-            FontSize="24"
-            HorizontalOptions="Center" />
+            Style="{StaticResource TitleLabelStyle}" />
 
         <Label
             Text="{Binding DescriptionText}"
-            HorizontalOptions="Center"
-            Margin="0,0,0,10" />
+            Style="{StaticResource SubtitleLabelStyle}" />
 
+        <!-- Buttons zentriert -->
         <Button
             Text="Neues Produkt erfassen"
+            HorizontalOptions="Center"
             Clicked="OnAddProductClicked" />
 
         <Button
             Text="Liste anzeigen"
+            HorizontalOptions="Center"
             Clicked="OnShowListClicked" />
 
-        
-
-        <!-- Beispiel: Umschalten der Sprache -->
+        <!-- Button für Sprache wechseln -->
         <Button
             Text="Sprache wechseln"
-            Clicked="OnSwitchLanguageClicked"
-            BackgroundColor="#FF4081"
-            TextColor="White"/>
+            HorizontalOptions="Center"
+            BackgroundColor="{StaticResource AccentColor}"
+            Clicked="OnSwitchLanguageClicked" />
     </VerticalStackLayout>
 </ContentPage>

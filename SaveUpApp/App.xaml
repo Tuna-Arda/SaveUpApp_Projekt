@@ -5,16 +5,48 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
     <Application.Resources>
+        <!-- Farben -->
         <Color x:Key="PrimaryColor">#3F51B5</Color>
+        <Color x:Key="SecondaryColor">#536DFE</Color>
         <Color x:Key="AccentColor">#FF4081</Color>
-        <Color x:Key="BackgroundColorLight">#F5F5F5</Color>
+        <Color x:Key="TextColorDark">#212121</Color>
+        <Color x:Key="TextColorLight">#FAFAFA</Color>
+        <Color x:Key="CardBackgroundColor">#FFFFFF</Color>
+        <Color x:Key="BackgroundColorLight">#F2F2F2</Color>
 
+        <!-- Schrift-Arten -->
+        <Style TargetType="Label" x:Key="TitleLabelStyle">
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+            <Setter Property="TextColor" Value="{StaticResource TextColorDark}" />
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,10,0,5"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="SubtitleLabelStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="TextColor" Value="{StaticResource TextColorDark}" />
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="0,0,0,10"/>
+        </Style>
+
+        <!-- Buttons: Einheitliches Aussehen -->
         <Style TargetType="Button">
-            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="CornerRadius" Value="20"/>
             <Setter Property="BackgroundColor" Value="{StaticResource PrimaryColor}"/>
             <Setter Property="TextColor" Value="White"/>
             <Setter Property="FontAttributes" Value="Bold"/>
-            <Setter Property="Margin" Value="0,5,0,5"/>
+            <Setter Property="Margin" Value="0,8,0,8"/>
+            <Setter Property="Padding" Value="15,10"/>
+        </Style>
+
+        <!-- Frame / Cards -->
+        <Style TargetType="Frame" x:Key="CardStyle">
+            <Setter Property="CornerRadius" Value="12" />
+            <Setter Property="HasShadow" Value="True" />
+            <Setter Property="BackgroundColor" Value="{StaticResource CardBackgroundColor}" />
+            <Setter Property="Margin" Value="10" />
+            <Setter Property="Padding" Value="15" />
         </Style>
     </Application.Resources>
 </Application>
